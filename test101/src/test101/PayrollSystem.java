@@ -28,16 +28,19 @@ package test101;
 	        
 	    }
 } **/
-
+//import java.util.HashMap;
 import java.util.Scanner;
 public class PayrollSystem {
 	public static void display() 
 	{System.out.println("Welcome to the Payroll System!");
     
 }
-
+ 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
+             
+        
         System.out.print("Enter the employee number: ");
         int employeeNumber = sc.nextInt();
 
@@ -132,16 +135,30 @@ public class PayrollSystem {
         double sssContribution = grossWeeklySalary *.045;
         double pagIbigContribution = 100.0;
         double philHealthContribution =275.0 ;
-
-        double totalDeductions = BIRtax + sssContribution + pagIbigContribution + philHealthContribution;
+        double totalDeductions = sssContribution + pagIbigContribution + philHealthContribution;
         double netWeeklySalary = grossWeeklySalary - totalDeductions;
-
+        double netwithtax = netWeeklySalary - BIRtax ;
+        
+        if (netWeeklySalary < 20832) {
+            BIRtax = 0.0; // No piste 
+        }  
+        /*if (netWeeklySalary < 3250) {
+            sssContribution = 135; // No piste 
+           
+        }
+        if (netWeeklySalary < 3250) {
+            sssContribution = 135; // No piste 
+           
+        }**/
+     
+     
         System.out.println("Gross Weekly Salary: " + grossWeeklySalary);
-        System.out.println("BIR Tax " + BIRtax);
         System.out.println("SSS Contribution " + sssContribution);
         System.out.println("PagIbig " + pagIbigContribution);
         System.out.println("PhIlHealth " + philHealthContribution); 
-        System.out.println("Net Weekly Salary: " + netWeeklySalary);
+        System.out.println("Weekly Salary w/ deductions : " + netWeeklySalary);
+        System.out.println("BIR Tax " + BIRtax);
+        System.out.println("Net Weekly Salary with tax: " + netwithtax);
     
 	
 	
